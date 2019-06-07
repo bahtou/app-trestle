@@ -1,4 +1,3 @@
-const path = require('path');
 const webpack = require('webpack');
 
 const { cssPaths } = require('./base-params');
