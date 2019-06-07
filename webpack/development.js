@@ -111,13 +111,6 @@ module.exports = {
   },
 
   optimization: {
-    splitChunks: {
-      hidePathInfo: false,
-      minSize: 10000,
-      maxAsyncRequests: Infinity,
-      maxInitialRequests: Infinity
-    },
-
     namedModules: true,
     namedChunks: true,
     nodeEnv: 'development',       // sets `process.env.NODE_ENV`in the app
@@ -131,7 +124,14 @@ module.exports = {
 
     noEmitOnErrors: true,
     minimize: false,             // Tell webpack to minimize the bundle using the TerserPlugin.
-    checkWasmTypes: false
+    checkWasmTypes: false,
+
+    splitChunks: {
+      hidePathInfo: false,
+      minSize: 10000,
+      maxAsyncRequests: Infinity,
+      maxInitialRequests: Infinity
+    }
   },
   performance: {
     hints: false
@@ -179,8 +179,6 @@ module.exports = {
     new CaseSensitivePathsPlugin({
       debug: false
     }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NamedChunksPlugin(),
     new webpack.SourceMapDevToolPlugin({
       filename: '[name].js.map',
       exclude: ['vendor.js']

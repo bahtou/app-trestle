@@ -47,6 +47,21 @@ module.exports = {
   },
 
   optimization: {
+    namedModules: false,
+    namedChunks: false,
+    nodeEnv: 'production',
+    flagIncludedChunks: true,
+    occurrenceOrder: true,
+    sideEffects: true,
+
+    providedExports: true,
+    usedExports: true,
+    concatenateModules: true,
+
+    noEmitOnErrors: true,
+    minimize: true,
+    checkWasmTypes: true,
+
     runtimeChunk: {
       name: 'manifest'
     },
@@ -83,22 +98,7 @@ module.exports = {
           enforce: true
         }
       }
-    },
-
-    namedModules: false,
-    namedChunks: false,
-    nodeEnv: 'production',
-    flagIncludedChunks: true,
-    occurrenceOrder: true,
-    sideEffects: true,
-
-    providedExports: true,
-    usedExports: true,
-    concatenateModules: true,
-
-    noEmitOnErrors: true,
-    minimize: true,
-    checkWasmTypes: true
+    }
   },
   performance: {
     hints: 'warning'
@@ -167,10 +167,7 @@ module.exports = {
         keep_fnames: false,
         safari10: false,
       }
-    }),
-
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    })
   ]
 };
 
